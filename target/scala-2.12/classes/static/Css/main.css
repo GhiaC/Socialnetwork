@@ -1,0 +1,287 @@
+.fullWidth{
+    width: 100%;
+    position: relative;
+    float: left;
+}
+.h1{
+    color: #396;
+    font-weight: 100;
+    font-size: 40px;
+    margin: 40px 0px 20px;
+}
+.clock{
+    margin-left: 10vw;
+}
+.flip-clock-divider .flip-clock-label{
+    color: #396 !important;
+}
+
+.countdown-timer-wrapper {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+    max-width: 300px;
+    margin: 50px auto;
+}
+
+.countdown-timer-wrapper h5 {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    padding-top: 10px;
+    text-shadow: none;
+}
+
+.countdown-timer-wrapper .timer {
+    padding: 10px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.countdown-timer-wrapper .timer .timer-wrapper {
+    display: inline-block;
+    width: 60px;
+    height: 50px;
+}
+
+.countdown-timer-wrapper .timer .timer-wrapper .time {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.countdown-timer-wrapper .timer .timer-wrapper .text {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+h1 { margin:150px auto; text-align:center;}
+
+
+
+.ui.parallax {
+    height: 10em;
+}
+
+.ui.parallax {
+    background-attachment: fixed;
+}
+
+.bg {
+    width: 100% !important;
+    height: 100% !important;;
+    position: fixed !important;;
+    /*float: right !important;;*/
+    background-image: url("../pic/images.jpg");
+    background-size: cover;
+    /*background-size: contain;*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: right top;*/
+}
+
+.ui.fluid.parallax {
+    width: 100%;
+}
+
+.textLarge {
+    font-size: larger !important;
+}
+
+.blue2Color {
+    background: #B9E5F3 !important;
+}
+.greenColor{
+    background: rgb(53,189,178) !important;
+}
+.transparent{
+    background: none !important;
+}
+.whiteBg{
+    background: white !important;
+}
+.marginTop {
+    margin-top: 0 !important;
+}
+
+.menuStyle {
+    -webkit-box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.6) !important;
+    -moz-box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.6) !important;
+
+}
+
+@media (max-width: 800px) {
+    .disMin800 {
+        display: none !important;
+    }
+}
+
+.registerBG {
+    background-image: url("../pic/register.jpg") !important;
+    background-size: 100% 100%;
+}
+
+.disMin800 *, .disMax800 * {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+@media (min-width: 801px) {
+    .disMax800 {
+        display: none !important;
+    }
+}
+
+
+h1, h2 {
+    font-size: inherit !important;
+    display: inline !important;
+}
+
+#inputSearch {
+    background: rgba(255, 255, 255, .5) !important;
+    transition: all .2s;
+    padding: 13px;
+    font-weight: bold;
+}
+
+#inputSearch:hover, #inputSearch:focus {
+    background: rgba(255, 255, 255, 1) !important;
+}
+
+html, body, .Myconf * {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.sidebar, .sidebar * {
+    direction: ltr !important;
+}
+
+.Mypadding .item {
+    padding: 15px !important;
+    font-size: medium;
+    color: white !important;
+    font-family: "B Homa" !important;
+}
+.Mypadding .item:hover {
+
+}
+div, input, h1, h2, h3, a, .my_rtl {
+    font-family: "B Homa" !important;
+}
+
+.date, h2 {
+    font-size: small !important;
+}
+
+h1 {
+    font-weight: normal !important;
+}
+
+.Mypadding {
+    /*padding: 10px !important;*/
+}
+
+.textCenter {
+    text-align: center !important;
+}
+
+.redColor {
+    background: rgb(210, 10, 1) !important;
+    color: white !important;
+}
+
+.blueColor {
+    background: rgb(185, 228, 244) !important;
+}
+
+.yellowColor {
+    background: rgba(243, 170, 70, .5) !important;
+}
+
+.grayColor {
+    background: rgb(200, 200, 200) !important;
+}
+
+.blue3Color {
+    background: rgb(87, 173, 230) !important;
+}
+
+.purpleColor {
+    background: rgb(115, 0, 171) !important;
+
+}
+.blue4Color{
+    background: rgb(8, 46, 104) !important;
+}
+@font-face {
+    font-family: 'Basic Icons';
+    src: url('../semantic/dist/themes/default/assets/fonts/icons.otf');
+    src: url('../semantic/dist/themes/default/assets/fonts/icons.eot?#iefix') format("embedded-opentype"), url('../semantic/dist/themes/default/assets/fonts/icons.svg#basic.icons') format("svg"), url('../semantic/dist/themes/default/assets/fonts/icons.woff') format("woff"), url('../semantic/dist/themes/default/assets/fonts/icons.ttf') format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-decoration: inherit;
+    text-transform: none;
+}
+
+.MyAlert {
+    background: #f4af19 !important;
+    color: #f4060a !important;
+}
+
+.color_white {
+    color: white !important;
+}
+
+.topPadding{
+    padding-top: 110px;
+}
+.orangeColor{
+    background: rgb(255,102,0) !important;
+    color: rgb(8,46,104) !important;
+}
+.intro {
+    height: 450px !important;
+    position: relative;
+    width: 100% !important;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url("../pic/bg3.jpg");
+}
+.padding30px{
+    padding: 30px;
+}
+.borderGold{
+    background: rgba(0,0,0,.7);
+    border-bottom: 5px gold solid;
+    border-top: 5px gold solid;
+    box-shadow: 0 0 0 5px purple;
+}
+/* force inline form */
+.my-form label {
+    display: block;
+}
+
+.my-form input {
+    margin-bottom: 1em;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* IE6/7 support */
+.clearfix {
+    *zoom: 1;
+}
+
+i.icon {
+    font-family: 'Icons' !important;
+}

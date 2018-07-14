@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="me.ghiasi"
+		module="hello_2.12"
+		revision="1.0"
+		status="integration"
+		publication="20180713164735"
+	>
+		<description>
+		hello
+		</description>
+	</info>
+	<configurations>
+		<conf name="compile" visibility="public" description=""/>
+		<conf name="runtime" visibility="public" description="" extends="compile"/>
+		<conf name="test" visibility="public" description="" extends="runtime"/>
+		<conf name="provided" visibility="public" description=""/>
+		<conf name="optional" visibility="public" description=""/>
+		<conf name="compile-internal" visibility="private" description="" extends="compile,optional,provided"/>
+		<conf name="runtime-internal" visibility="private" description="" extends="runtime,optional"/>
+		<conf name="test-internal" visibility="private" description="" extends="test,optional,provided"/>
+		<conf name="plugin" visibility="private" description=""/>
+		<conf name="pom" visibility="public" description=""/>
+		<conf name="scala-tool" visibility="private" description=""/>
+	</configurations>
+	<publications>
+		<artifact name="hello_2.12" type="pom" ext="pom" conf="pom"/>
+		<artifact name="hello_2.12" type="jar" ext="jar" conf="compile"/>
+		<artifact name="hello_2.12" type="src" ext="jar" conf="compile" e:classifier="sources"/>
+		<artifact name="hello_2.12" type="doc" ext="jar" conf="compile" e:classifier="javadoc"/>
+	</publications>
+	<dependencies>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.12.6" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.12.6" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="org.typelevel" name="cats-core_2.12" rev="1.1.0" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-http_2.12" rev="10.1.3" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-http-testkit_2.12" rev="10.1.3" conf="test->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-stream_2.12" rev="2.5.13" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-stream-testkit_2.12" rev="2.5.13" conf="test->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-actor_2.12" rev="2.5.13" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-testkit_2.12" rev="2.5.13" conf="test->default(compile)"/>
+		<dependency org="org.postgresql" name="postgresql" rev="9.3-1100-jdbc4" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.slick" name="slick_2.12" rev="2.1.0" conf="compile->default(compile)"/>
+		<dependency org="org.slf4j" name="slf4j-nop" rev="1.6.4" conf="compile->default(compile)"/>
+		<dependency org="org.scalikejdbc" name="scalikejdbc_2.12" rev="3.2.2" conf="compile->default(compile)"/>
+		<dependency org="com.h2database" name="h2" rev="1.4.197" conf="compile->default(compile)"/>
+		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.akka" name="akka-http-spray-json_2.12" rev="10.1.3" conf="compile->default(compile)"/>
+		<dependency org="io.spray" name="spray-json_2.12" rev="1.3.4" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-json_2.11" rev="2.4.6" conf="compile->default(compile)"/>
+		<dependency org="io.circe" name="circe-core_2.12" rev="0.9.3" conf="compile->default(compile)"/>
+		<dependency org="io.circe" name="circe-generic_2.12" rev="0.9.3" conf="compile->default(compile)"/>
+		<dependency org="io.circe" name="circe-parser_2.12" rev="0.9.3" conf="compile->default(compile)"/>
+	</dependencies>
+</ivy-module>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scala Social Network</title>
+    <script src="http://localhost:8080/static/js/jquery-3.1.1.min.js"></script>
+    <script src="http://localhost:8080/static/js/vue.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="http://localhost:8080/static/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/static/Css/owl.theme.default.min.css">
+    <script src="http://localhost:8080/static/js/owl.carousel.min.js"></script>
+    <script src="http://localhost:8080/static/js/cookie.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/static/Css/main.css">
+    <script src="http://localhost:8080/static/semantic/dist/semantic.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="http://font.limil.org/homa.min.css"/>
+    <meta name="description" content="Scala Social Network">
+    <!--<script src="http://localhost:8080/static/js/localforage.min.js"></script>-->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <script>
+        var HOME_URL = 'http://localhost:8080/';
+    </script>
+
+</head>
+<body>
+<div class="bg">
+</div>
+
+<div class="ui container right floated" id="main">
+    <div class="ui right vertical inverted sidebar labeled icon menu">
+        <a class="item" href="http://localhost:8080/">
+            <i class="home icon"></i>
+            صفحه اصلی
+        </a>
+        <a v-if="!loggedIn" class="item" href="http://localhost:8080/register.html">
+            <i class="smile icon"></i>
+            ثبت نام
+        </a>
+        <a v-if="!loggedIn" class="item" href="http://localhost:8080/login.html">
+            <i class="smile icon"></i>
+            ورود
+        </a>
+        <a class="item username">
+            <script>
+                $('.username').html(getCookie('username'))
+            </script>
+        </a>
+        <a v-if="loggedIn" class="item" onclick="logOut()">خروج</a>
+    </div>
+
+
+    <div class="menu  ui fixed main menus blue4Color Mypadding menuStyle">
+        <a href="http://localhost:8080/" class="item disMin800 ">صفحه اصلی</a>
+
+        <a v-if="!loggedIn" href="http://localhost:8080/register.html" class="item disMin800">ثبت نام</a>
+        <a v-if="!loggedIn" href="http://localhost:8080/login.html" class="item disMin800">ورود</a>
+
+        <a v-if="loggedIn" class="item disMin800" onclick="logOut()">
+            خروج
+        </a>
+
+        <button onclick="
+        $('.ui.sidebar')
+        .sidebar('toggle')
+        ;" class="ui button disMax800 dropdown item">
+            <i class="align justify icon"></i>
+        </button>
+
+        <div class="left menu">
+            <a v-if="loggedIn" class="item disMin800 username">
+                <script>
+                    $('.left.menu a.item.username').html(getCookie('username'))
+                </script>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<section style="padding: 100px 0;min-height:75vh" class="registerBG">
+    <div class="ui small container" style="width: 36vw;left: 50%;margin-left: -18vw">
+        <form class="ui small form container Myconf" id="login" style="background : rgba(255,255,255,.6)">
+            <div class="ui stacked segment">
+                <div class="field">
+                    <div class="ui right icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="email" v-model="email" placeholder="ایمیل">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui right icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" v-model="password" placeholder="کلمه عبور">
+                    </div>
+                </div>
+                <button class="ui fluid large teal textCenter submit button"
+                        v-on:click="sub($event)">ورود
+                </button>
+                <div class="ui message MyAlert" v-if="log">
+                    {{log}}
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    var app = new Vue({
+        el: '#login',
+        data: {
+            email: '',
+            password: ''
+            , log: ''
+        },
+        methods: {
+            sub: function (event) {
+                event.preventDefault();
+                if (this.email == "" || this.password == "") {
+                    this.log = "فیلد ها را کامل کنید";
+                } else {
+                    setCookie("key", "", -1);
+                    var self = this;
+                    axios.post('api/login', {
+                        // order: 'login'
+                        username: this.email,
+                        password: this.password
+                    })
+                        .then(function (response) {
+                            var data = response.data;
+                            if (data[0].result && data[0].username && data[0].cookie) {
+                                setCookie("key", data[0].cookie, 3);
+                                setCookie("username", data[0].username, 3);
+                                window.location = "/";
+                            } else
+                                self.log = data[0].error;
+                        })
+                        .catch(function (error) {
+                            alert(error);
+                        });
+                }
+            }
+        }
+    });
+</script>
+
+
+<div class="ui vertical footer segment form-page"
+     style="background: rgba(8,46,104,0.8);padding-top:50px;margin-top: 50px;" id="footer">
+    <div class="ui container">
+        <footer>
+            <div class="ui centered grid">
+                <div class="row">
+                    <div class="column two wide computer five wide tablet four wide mobile">
+                        <!--<img class="ui image"  style="width: 100%" :src="HOME_URL+'pic/12.png'">-->
+                    </div>
+                    <div class="column two wide computer five wide tablet four wide mobile">
+                    </div>
+                    <div class="column two wide computer five wide tablet four wide mobile">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column textCenter color_white">
+                        ©
+                    </div>
+                </div>
+                <!--wide right floated  ten inverted -->
+            </div>
+        </footer>
+    </div>
+</div>
+<div class="ui vertical footer segment form-page inverted">
+    <div class="ui container">
+        <footer>
+            <div class="ui centered grid">
+                <div class="column textCenter" style="background:black;">
+                    Scala
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script>
+    var footer = new Vue({
+        el: '#footer'
+    });
+</script>
+<script>
+    $.fn.uiParallax = function () {
+        $(this).each(function () {
+            var imageUrl = $(this).data('imgsrc');
+            $(this).css('background-image', 'url(' + HOME_URL + imageUrl + ')');
+            $(this).css('background-size', 'cover');
+        });
+    };
+    $('.ui.parallax').uiParallax();
+</script>
+<script>
+    var main = new Vue({
+        el: '#main',
+        data: {
+            loggedIn: false
+        }
+    });
+    main.loggedIn = isLoggedIn();
+
+</script>
+
+<!--</div>-->
+</body>
+</html>

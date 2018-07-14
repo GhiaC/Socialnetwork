@@ -1,0 +1,8 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\m\IdeaProjects\hello\src\main\scala\database.scala:78:17: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : scala.collection.mutable.Set[scala.collection.immutable.Map[String,java.io.Serializable]][0m
+[0m[[0m[31merror[0m] [0m[0m required: scala.collection.mutable.Set[Map[String,String]][0m
+[0m[[0m[31merror[0m] [0m[0mNote: scala.collection.immutable.Map[String,java.io.Serializable] >: Map[String,String], but trait Set is invariant in type A.[0m
+[0m[[0m[31merror[0m] [0m[0mYou may wish to investigate a wildcard type such as `_ >: Map[String,String]`. (SLS 3.2.10)[0m
+[0m[[0m[31merror[0m] [0m[0m        A = A.++(Set(Map("result" -> "true", "cookie" -> cookie)))[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
