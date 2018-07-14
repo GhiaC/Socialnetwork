@@ -45,7 +45,7 @@ object WebServer {
   def main(args: Array[String]) {
     java.nio.charset.Charset.availableCharsets()
     Codec("UTF8")
-
+    db.initialTables()
     val route: Route =
     //        get {
     //          entity(as[HttpRequest]) { requestData =>
