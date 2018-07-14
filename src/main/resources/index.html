@@ -70,8 +70,8 @@
         </div>
     </div>
 </div>
-<section style="padding: 20px 0;" id="log">
-    <div v-if="loggedIn" class="ui small container" style="margin-top: 100px">
+<section style="padding: 20px 0;display: none" id="sendTw">
+    <div class="ui small container" style="margin-top: 100px">
         <div class="ui one column doubling stackable grid container">
             <div class="column">
                 <div class="ui raised segment" style="background:rgba(255,255,255,.5)">
@@ -136,13 +136,10 @@
         }
     });
     sendTweet.loggedIn = isLoggedIn();
-    var log = new Vue({
-        el: '#log',
-        data: {
-            loggedIn: false
-        }
-    });
-    log.loggedIn = isLoggedIn();
+    if(isLoggedIn()){
+        $("#sendTw").show();
+    }
+
 </script>
 <section style="background: rgb(240,240,240);padding: 70px 0;">
     <div class="ui container" id="CardRender">
